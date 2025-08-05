@@ -15,5 +15,8 @@ ENV FLASK_ENV development
 
 EXPOSE 5000
 
+RUN groupadd -r appuser && useradd -r -g appuser appuser
+USER appuser
+
 # CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
 CMD [ "sh", "run.prod.sh"]
